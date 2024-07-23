@@ -1,0 +1,37 @@
+#!/bin/bash
+
+RMQ_DIR=/var/vcap/packages/rabbitmq/rabbitmq
+RMQ_CONF_DIR=/var/vcap/jobs/rabbitmq-server/config
+RMQ_LOG_DIR=/var/vcap/sys/log/rabbitmq-server
+PIDFILE=/var/vcap/sys/run/rabbitmq-server/pid
+
+case $1 in
+
+  start)
+    mkdir -p $RMQ_LOG_DIR
+    mkdir -p $RMQ_CONF_DIR
+
+    echo <%= p("rabbitmq.erlang.cookie") %> > $HOME/.erlang.cookie
+    chmod 400 $HOME/.erlang.cookie
+
+    # Enable plugins
+    <% p("rabbitmq.enabled_plugins").each do |plugin| %>
+    $RMQ_DIR/sbin/rabbitmq-plugins enable <%= plugin %> --offline
+    <% end %> 
+
+    $RMQ_DIR/sbin/rabbitmq-server \
+      -config $RMQ_CONF_DIR/rabbitmq.conf \
+      -detached \
+      -pidfile $PIDFILE
+
+    ;;
+
+  stop)
+    $RMQ_DIR/sbin/rabbitmqctl stop
+    rm -f $PIDFILE
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac

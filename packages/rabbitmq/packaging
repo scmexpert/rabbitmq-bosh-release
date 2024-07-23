@@ -1,0 +1,11 @@
+set -e
+
+# Download RabbitMQ
+wget -O rabbitmq.tar.xz https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.13/rabbitmq-server-generic-unix-3.9.13.tar.xz
+
+# Extract RabbitMQ
+tar -xf rabbitmq.tar.xz
+
+# Move RabbitMQ to the BOSH install directory
+mv rabbitmq_server-3.9.13 ${BOSH_INSTALL_TARGET}/rabbitmq
+

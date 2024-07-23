@@ -1,0 +1,9 @@
+set -e
+
+# Download RabbitMQ Management plugin
+wget -O management-plugin.ez https://github.com/rabbitmq/rabbitmq-management/releases/download/v3.9.13/rabbitmq_management-3.9.13.ez
+
+# Move plugins to the BOSH install directory
+mkdir -p ${BOSH_INSTALL_TARGET}/plugins
+mv management-plugin.ez ${BOSH_INSTALL_TARGET}/plugins/
+

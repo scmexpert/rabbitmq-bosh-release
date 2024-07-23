@@ -1,0 +1,10 @@
+default_user = <%= p("rabbitmq.default_user") %>
+default_pass = <%= p("rabbitmq.default_pass") %>
+
+listeners.ssl.default = 5671
+ssl_options.cacertfile = /path/to/ca_certificate.pem
+ssl_options.certfile = /path/to/server_certificate.pem
+ssl_options.keyfile = /path/to/private_key.pem
+ssl_options.verify = verify_peer
+ssl_options.fail_if_no_peer_cert = false
+

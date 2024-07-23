@@ -1,0 +1,23 @@
+name: rabbitmq-oos-bosh
+version: 0+dev.1
+commit_hash: empty
+uncommitted_changes: true
+jobs:
+- name: rabbitmq-server
+  version: 4604057ef4ac856a432df9c2972d574b8609df4fcb28ee1d455e9633346a9f2c
+  fingerprint: 4604057ef4ac856a432df9c2972d574b8609df4fcb28ee1d455e9633346a9f2c
+  sha1: sha256:876964e54027f8c82168d8312f31f60ba6bb9575cad8ceaa295b9eac89be5599
+  packages:
+  - rabbitmq
+  - rabbitmq-plugins
+packages:
+- name: rabbitmq
+  version: 2057d2f803e015bca70389849b7e759fdb0237e23ba5bc1cf245caf409c76ef9
+  fingerprint: 2057d2f803e015bca70389849b7e759fdb0237e23ba5bc1cf245caf409c76ef9
+  sha1: sha256:41f8fcbc551f98375fba168268c5c1e2cd845a40689d1d08b2514c8e0a839686
+  dependencies: []
+- name: rabbitmq-plugins
+  version: 22a3fd57680724cb94b11bbf89fedd2d5b6141df71d475887b85a1537bac7e6e
+  fingerprint: 22a3fd57680724cb94b11bbf89fedd2d5b6141df71d475887b85a1537bac7e6e
+  sha1: sha256:8e4a875ed0464515e56a8f05d74e5b5e0f0a483c83b22b6ad61681b60b931970
+  dependencies: []

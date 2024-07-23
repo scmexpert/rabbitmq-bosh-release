@@ -1,0 +1,25 @@
+---
+name: rabbitmq-server
+
+templates:
+  ctl.erb: bin/ctl
+  rabbitmq.conf.erb: config/rabbitmq.conf
+
+packages:
+- rabbitmq
+- rabbitmq-plugins
+
+properties:
+  rabbitmq.erlang.cookie:
+    description: "Erlang cookie for clustering"
+    default: "defaultcookie"
+  rabbitmq.default_user:
+    description: "Default RabbitMQ user"
+    default: "guest"
+  rabbitmq.default_pass:
+    description: "Default RabbitMQ password"
+    default: "guest"
+  rabbitmq.enabled_plugins:
+    description: "List of plugins to enable"
+    default: []
+

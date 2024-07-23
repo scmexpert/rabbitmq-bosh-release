@@ -1,0 +1,28 @@
+---
+name: rabbitmq
+releases:
+- name: rabbitmq
+  version: latest
+
+instance_groups:
+- name: rabbitmq
+  jobs:
+  - name: rabbitmq-server
+    release: rabbitmq
+  properties:
+    rabbitmq:
+      erlang:
+        cookie: "your-erlang-cookie"
+      default_user: admin
+      default_pass: admin-password
+      enabled_plugins:
+      - rabbitmq_management
+      tls:
+        cert: |
+          -----BEGIN CERTIFICATE-----
+          (Your certificate content here)
+          -----END CERTIFICATE-----
+        private_key: |
+          -----BEGIN PRIVATE KEY-----
+          (Your private key content here)
+          -----END PRIVATE KEY-----
