@@ -1,0 +1,5 @@
+<% if lookup_property(@raw_properties, "rabbitmq-server.override_advanced_config").nil? -%>
+<%= p("rabbitmq-server.config").unpack("m0").first %>
+<% else -%>
+<%= p("rabbitmq-server.override_advanced_config").unpack("m0").first %>
+<% end -%>

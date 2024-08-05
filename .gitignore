@@ -1,0 +1,6 @@
+config/.aws
+blobs/
+blobs/**/*
+*/*.tgz
+*/*.zip
+*/*.tar

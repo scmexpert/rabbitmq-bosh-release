@@ -1,0 +1,6 @@
+---
+name: erlang-25
+metadata:
+  version: 25.3.2.13
+files:
+- erlang-25/otp_src_25.3.2.13.tar.gz
